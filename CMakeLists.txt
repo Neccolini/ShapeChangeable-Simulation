@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.15)
 #
 
 project(
-  "Project"
+  ShapeChangeable-Simulation
   VERSION 0.1.0
   LANGUAGES CXX
 )
@@ -133,12 +133,12 @@ message(STATUS "Added all header and implementation files.\n")
 #
 
 if(${PROJECT_NAME}_BUILD_HEADERS_ONLY)
-  target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_17)
+  target_compile_features(${PROJECT_NAME} INTERFACE cxx_std_20)
 else()
-  target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
+  target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_20)
 
   if(${PROJECT_NAME}_BUILD_EXECUTABLE AND ${PROJECT_NAME}_ENABLE_UNIT_TESTING)
-    target_compile_features(${PROJECT_NAME}_LIB PUBLIC cxx_std_17)
+    target_compile_features(${PROJECT_NAME}_LIB PUBLIC cxx_std_20)
   endif()
 endif()
 include(cmake/CompilerWarnings.cmake)
@@ -174,6 +174,14 @@ include(cmake/Doxygen.cmake)
 #      dependency1 ...
 #  )
 #endif()
+include(FetchContent)
+FetchContent_Declare(json
+    GIT_REPOSITORY https://github.com/nlohmann/json.git
+    GIT_TAG a8a547d7a212a6a39943bbd5b4220be504a1a33e # develop latest version at 2022/05/20
+)
+FetchContent_MakeAvailable(json)
+target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json::nlohmann_json)
+
 
 # For Windows, it is necessary to link with the MultiThreaded library.
 # Depending on how the rest of the project's dependencies are linked, it might be necessary
