@@ -22,8 +22,6 @@ int main(int argc, char* argv[]) {
   // jsonの場合
   json j = json::parse(fp);
   fclose(fp);
-  std::cout<<j["channel_info"]<<std::endl;
-  std::cout<<j["node_num"]<<std::endl;
 
   if (j["channel_info"] == nullptr || j["node_num"] == nullptr || j["channel_num"] == nullptr || j["roles"] == nullptr) {
     printf("the format of json file is incorrect.\n");
@@ -36,7 +34,6 @@ int main(int argc, char* argv[]) {
     .graph = j["channel_info"],
     .node_roles = j["roles"],
   };
-  std::cout<<s.channel_num<<std::endl;
   Network network = Network(s);
   MultiProcess mp = MultiProcess(s.size, network.node_roles);
   return 0;
