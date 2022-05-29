@@ -12,8 +12,6 @@ enum ROLE {
 
 class RoleHandler {
  public:
-  std::map<ROLE, void (*)()> role_to_func;
+  std::map<ROLE, void (*)(std::vector<std::pair<int, int>>& ch)> role_to_func;
   RoleHandler();
 };
-
-extern RoleHandler Roles;

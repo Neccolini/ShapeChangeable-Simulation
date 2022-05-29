@@ -7,8 +7,8 @@
 
 #include "devices/Devices.h"
 
-#define MAX_NODES 2000
-#define MAX_CHANNEL 10
+#define MAX_NODES 100
+#define MAX_CHANNEL 8
 
 struct SimFile {
   int size;
@@ -18,14 +18,14 @@ struct SimFile {
 };
 
 struct channel {
-  int node_a, node_b;
-  int channel_no;  // 割り当てられたチャネル番号
+  int read, write;
 };
 
 class Network {
  public:
   Network(SimFile s);
-  int pp[MAX_NODES * MAX_CHANNEL][2];  // todo 動的確保にする
-  std::vector<std::vector<channel>> chs;
+  int pp[2 * MAX_NODES * MAX_CHANNEL][2];  // todo 動的確保にする
+  // std::vector<std::vector<channel>> chs;
   std::vector<ROLE> node_roles;
+  std::vector<std::vector<channel>> chs;
 };

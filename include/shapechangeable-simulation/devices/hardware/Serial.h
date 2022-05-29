@@ -1,28 +1,48 @@
 #pragma once
 
+#include <string.h>
+#include <unistd.h>
+
 #include <string>
+#include <vector>
+
+#include "string_extensions.h"
+
+#define r first
+#define w second
+#define TEST
+#define totalN 256
+
+typedef string_extensions::string String;
 
 class HardwareSerial {
  public:
-  void print(std::string s);
+  void print(String s);
   void print(char* s);
-  void println(std::string s);
+  void println(String s);
   void println(char* s);
   template <class... A>
-  void printf(std::string s, A... args);
+  void printf(String s, A... args);
   template <class... A>
   void printf(char* s, A... args);
+  void begin(int rate);
 };
 
 // 通信
 class HardwareSerial2 {
  private:
-  HardwareSerial2(int channel);
-  int channel;
+  String buff;
+  unsigned long total_bytes = 0;
 
  public:
-  void print(std::string s);
-  void println(std::string s);
+  HardwareSerial2(std::vector<std::pair<int, int>>& ch);
+  std::vector<std::pair<int, int>> ch;
+
+  void print(String s);
+  void println(String s);
   template <class... A>
-  void printf(std::string s, A... args);
+  void printf(String s, A... args);
+  int available();
+  String readString();
+  void begin(int rate);
 };

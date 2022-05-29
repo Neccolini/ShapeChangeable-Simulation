@@ -1,5 +1,6 @@
 #pragma once
+#include <vector>
 
 namespace Devices {
-void Cordinator();
+void Cordinator(std::vector<std::pair<int, int> >& ch);
 }  // namespace devices
