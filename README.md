@@ -4,53 +4,9 @@
 [![codecov](https://codecov.io/gh/filipdutescu/modern-cpp-template/branch/master/graph/badge.svg)](https://codecov.io/gh/filipdutescu/modern-cpp-template)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/filipdutescu/modern-cpp-template)](https://github.com/filipdutescu/modern-cpp-template/releases)
 
-# Modern C++ Template
-
-A quick C++ template for modern CMake projects, aimed to be an easy to use
-starting point.
-
-This is my personal take on such a type of template, thus I might not use the
-best practices or you might disagree with how I do things. Any and all feedback
-is greatly appreciated!
+# Simulation for Shape-Changeble Computer
 
 ## Features
-
-* Modern **CMake** configuration and project, which, to the best of my
-knowledge, uses the best practices,
-
-* An example of a **Clang-Format** config, inspired from the base *Google* model,
-with minor tweaks. This is aimed only as a starting point, as coding style
-is a subjective matter, everyone is free to either delete it (for the *LLVM*
-default) or supply their own alternative,
-
-* **Static analyzers** integration, with *Clang-Tidy* and *Cppcheck*, the former
-being the default option,
-
-* **Doxygen** support, through the `ENABLE_DOXYGEN` option, which you can enable
-if you wish to use it,
-
-* **Unit testing** support, through *GoogleTest* (with an option to enable
-*GoogleMock*) or *Catch2*,
-
-* **Code coverage**, enabled by using the `ENABLE_CODE_COVERAGE` option, through
-*Codecov* CI integration,
-
-* **Package manager support**, with *Conan* and *Vcpkg*, through their respective
-options
-
-* **CI workflows for Windows, Linux and MacOS** using *GitHub Actions*, making
-use of the caching features, to ensure minimum run time,
-
-* **.md templates** for: *README*, *Contributing Guideliness*,
-*Issues* and *Pull Requests*,
-
-* **Permissive license** to allow you to integrate it as easily as possible. The
-template is licensed under the [Unlicense](https://unlicense.org/),
-
-* Options to build as a header-only library or executable, not just a static or
-shared library.
-
-* **Ccache** integration, for speeding up rebuild times
 
 ## Getting Started
 
@@ -74,15 +30,13 @@ template *as-is*, meaning using the versions recommended here, then you will nee
 ### Installing
 
 It is fairly easy to install the project, all you need to do is clone if from
-[GitHub](https://github.com/filipdutescu/modern-cpp-template) or
-[generate a new repository from it](https://github.com/filipdutescu/modern-cpp-template/generate)
-(also on **GitHub**).
+[GitLab](git@geopelia.mtl.t.u-tokyo.ac.jp:naga/ShapeChangeable-Simulation.git)
 
 If you wish to clone the repository, rather than generate from it, you simply need
 to run:
 
 ```bash
-git clone https://github.com/filipdutescu/modern-cpp-template/
+git clone git@geopelia.mtl.t.u-tokyo.ac.jp:naga/ShapeChangeable-Simulation.git
 ```
 
 After finishing getting a copy of the project, with any of the methods above, create
@@ -198,9 +152,4 @@ existing versions can be found in the
 
 ## Authors
 
-* **Filip-Ioan Dutescu** - [@filipdutescu](https://github.com/filipdutescu)
-
 ## License
-
-This project is licensed under the [Unlicense](https://unlicense.org/) - see the
-[LICENSE](LICENSE) file for details
