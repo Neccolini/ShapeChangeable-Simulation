@@ -31,11 +31,16 @@ HardwareSerial2::HardwareSerial2(std::vector<std::pair<int, int>>& ch) {
 }
 
 void HardwareSerial2::print(String s) {
+  const char* cs = s.c_str();
+  int n = strlen(cs);
   for (auto p : this->ch) {
-    write(p.w, s.c_str(), s.size() + 1);
+    for (int i = 0; i < n; i++) {
+      write(p.w, cs + i, 1);
+    }
   }
 }
 void HardwareSerial2::println(String s) {
+  s += "\n";
   const char* cs = s.c_str();
   int n = strlen(cs);
   for (auto p : this->ch) {
