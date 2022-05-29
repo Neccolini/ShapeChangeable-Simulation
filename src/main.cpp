@@ -28,13 +28,16 @@ int main(int argc, char* argv[]) {
     _exit(1);
   }
   // todo 形式に関するassertionを設ける
+
+  printf("simulation Started!\n");
   SimFile s = {
-    .size = j["node_num"],
-    .channel_num = j["channel_num"],
-    .graph = j["channel_info"],
-    .node_roles = j["roles"],
+      .size = j["node_num"],
+      .channel_num = j["channel_num"],
+      .graph = j["channel_info"],
+      .node_roles = j["roles"],
   };
   Network network = Network(s);
-  MultiProcess mp = MultiProcess(s.size, network.node_roles);
+  MultiProcess mp = MultiProcess(s.size, network.node_roles, network.chs);
+
   return 0;
 }
