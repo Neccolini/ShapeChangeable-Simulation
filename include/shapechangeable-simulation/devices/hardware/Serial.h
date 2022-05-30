@@ -12,6 +12,8 @@
 #define w second
 #define TEST
 #define totalN 256
+#define SERIAL_STRING_BEGIN "SERIAL_STRING_BEGIN"
+#define SERIAL_STRING_END "SERIAL_STRING_END"
 
 typedef string_extensions::string String;
 
