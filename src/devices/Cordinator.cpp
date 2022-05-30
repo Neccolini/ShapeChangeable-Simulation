@@ -7,17 +7,22 @@
 
 namespace Cordinator {
 HardwareSerial Serial;
+bool can_send = false;
 inline void setup(HardwareSerial2& Serial2) {
   // here
   Serial.begin(9600);
 }
 inline void loop(HardwareSerial2& Serial2) {
   while (true) {
-    String req = "RTS";
-    Serial2.print(req);
+    if (!can_send) {
+      String req = "RTS";
+      Serial2.print(req);
+    }
     if (Serial2.available() > 0) {
       String rep = Serial2.readString();
-      if (int idx = rep.indexOf("CTS") != -1) {
+      std::printf("Cordinator received: %s\n", rep.c_str());
+      if (rep.indexOf("CTS") != -1) {
+        can_send = true;
         Serial2.print("this is a data.");
       }
     }

@@ -9,6 +9,7 @@
 
 namespace Router {
 HardwareSerial Serial;
+bool waiting_data = false;
 void setup(HardwareSerial2& Serial2) {
   // here
   Serial.begin(9600);
@@ -18,13 +19,17 @@ void loop(HardwareSerial2& Serial2) {
     if (Serial2.available() > 0) {
       String recv;
       recv = Serial2.readString();
-      if (int idx = recv.indexOf("RTS") != -1) {
-        Serial2.print("CTS");
+      std::printf("Router recieved: %s\n", recv.c_str());
+      if (!waiting_data) {
+        if (recv.indexOf("RTS") != -1) {
+          Serial2.print("CTS");
+          waiting_data = true;
+        }
       } else {
-        Serial.println(recv);
+        waiting_data = false;
       }
     }
-    sleep(2);
+    sleep(1);
   }
 }
 }  // namespace Router
