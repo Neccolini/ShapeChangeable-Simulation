@@ -93,7 +93,6 @@ int HardwareSerial2::available() {
           break;
       }
     }
-    write(fd.w, "\n", 1); // for linux?
   }
   this->total_bytes += this->buff.size();
   return (int)this->buff.size();
