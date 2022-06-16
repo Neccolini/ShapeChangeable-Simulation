@@ -1,4 +1,5 @@
 #include "shapechangeable-simulation/MultiProcess.h"
+
 #include <string.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -51,22 +52,7 @@ pid_t MultiProcess::spawnChild(Fn func, std::vector<std::pair<int, int>>& ch, in
     printf("spawn child with pid - %d\n", ch_pid);
     return ch_pid;
   } else {
-    /*
-    for(auto fd : ch) {
-      sprintf(buf, "Hello, world from %d", getpid());
-      printf("(write, read) = (%d, %d)\n", test[1], test[0]);
-      write(fd.second, buf, strlen(buf) + 1);
-      sleep(1);
-      read(fd.first, buf, 256);
-      printf("pid: %d, Message From Child: %s\n", getpid(), buf);
-    }
-    */
-    if(i == 0) {
-      Devices::Cordinator(ch);
-    } else if(i == 1) {
-      Devices::Router(ch);
-    }
-    // func(ch);
+    func(ch);
     exit(EXIT_FAILURE);
   }
 }
