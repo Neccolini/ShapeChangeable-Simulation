@@ -6,6 +6,8 @@
 #include "shapechangeable-simulation/devices/hardware/Serial.h"
 
 namespace Cordinator {
+using namespace std;
+using namespace string_extensions;
 HardwareSerial Serial;
 // _GLOBAL_VARIABLES_BEGIN_ THIS COMMENT SHOULD NOT BE DELETED.
 // _GLOBAL_VARIABLES_END_ THIS COMMENT SHOULD NOT BE DELETED.
