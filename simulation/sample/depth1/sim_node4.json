@@ -1,0 +1,15 @@
+{
+    "node_num": 4,
+    "channel_num": 3,
+    "channel_info": [
+        [1, 2, 3],
+        [],
+        []
+    ],
+    "roles": [
+        "CORDINATOR",
+        "ROUTER",
+        "ROUTER",
+        "ROUTER"
+    ]
+}
