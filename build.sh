@@ -8,5 +8,4 @@ sudo make
 sudo cp lib *.a /usr/lib/
 popd
 sudo cmake ..
-sudo cmake --build . --target install
 exit 0
