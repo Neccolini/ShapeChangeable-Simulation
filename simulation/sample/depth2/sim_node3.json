@@ -1,15 +1,13 @@
 {
-    "node_num": 4,
-    "channel_num": 3,
+    "node_num": 3,
+    "channel_num": 2,
     "channel_info": [
-        [1, 2, 3],
-        [],
-        [],
+        [1],
+        [2],
         []
     ],
     "roles": [
         "CORDINATOR",
-        "ROUTER",
         "ROUTER",
         "ROUTER"
     ]
